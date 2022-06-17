@@ -5,6 +5,7 @@ import { UndoRedoStoreTestComponent } from './undo-redo-store-test/undo-redo-sto
 const routes: Routes = [
   { path: 'storeundoredo', component: UndoRedoStoreTestComponent },
   { path: '', redirectTo: 'storeundoredo', pathMatch: 'full' },
+  { path: '**', redirectTo: 'storeundoredo', pathMatch: 'full' },
 ];
 
 @NgModule({
