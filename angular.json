@@ -22,6 +22,7 @@
           "options": {
             "outputPath": "docs",
             "deployUrl": "ngrx-undo-redo-investigation/",
+            "baseHref": "ngrx-undo-redo-investigation",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
