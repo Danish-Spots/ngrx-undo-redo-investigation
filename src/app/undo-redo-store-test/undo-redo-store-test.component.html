@@ -1,0 +1,50 @@
+<div class="top-space">
+  <button mat-raised-button (click)="undo()"><mat-icon>undo</mat-icon></button>
+  <button mat-raised-button (click)="redo()"><mat-icon>redo</mat-icon></button>
+</div>
+
+<div class="container">
+  <div class="card" *ngFor="let platform of platforms$ | async">
+    <span>Platform ID: {{ platform.id }}</span
+    ><br />
+    <div *ngFor="let movie of platform.movies">
+      <div class="input-container">
+        <div class="input-fields">
+          <div>
+            <span class="width-50">Title:</span>
+            <input
+              type="text"
+              (focusout)="editMovieTitle($event, platform.id, movie)"
+              [value]="movie.title"
+            />
+          </div>
+          <div>
+            <span class="width-50">Rating:</span>
+            <input
+              type="text"
+              (focusout)="editMovie($event, platform.id, movie)"
+              [value]="movie.text"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <button
+      class="add"
+      mat-raised-button
+      color="primary"
+      (click)="addMovie(platform.id)"
+    >
+      Add Title & Rating
+    </button>
+  </div>
+</div>
+
+<button
+  mat-raised-button
+  color="primary"
+  class="add-platform"
+  (click)="addPlatform()"
+>
+  Add Movie
+</button>

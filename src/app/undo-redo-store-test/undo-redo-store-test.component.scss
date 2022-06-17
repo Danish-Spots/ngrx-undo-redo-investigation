@@ -1,0 +1,61 @@
+.card {
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 5px;
+  box-shadow: 3px 3px 10px grey;
+
+  &:hover {
+    box-shadow: 3px 3px 15px grey;
+  }
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+}
+
+.input-fields {
+  display: flex;
+  flex-direction: column;
+
+  div {
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
+  }
+
+  input {
+    border: 0;
+    border-bottom: 1px solid black;
+    margin-left: 0.5rem;
+    width: 10rem;
+  }
+}
+
+.add {
+  margin-top: 1rem;
+}
+
+.width-50 {
+  display: inline-block;
+  width: 50px;
+}
+
+.add-platform {
+  margin-top: 2rem;
+  margin-left: 1rem;
+}
+
+.top-space {
+  margin-top: 1rem;
+  margin-left: 1rem;
+
+  button {
+    margin-right: 1rem;
+  }
+}
