@@ -55,6 +55,7 @@ export class UndoRedoStoreTestComponent implements OnInit {
       PlatformActions.editMovie({
         platformId: platformId,
         movie: newMovie,
+        original: { key: 'text', value: movie.text },
       })
     );
   }
@@ -72,6 +73,7 @@ export class UndoRedoStoreTestComponent implements OnInit {
       PlatformActions.editMovie({
         platformId: platformId,
         movie: newMovie,
+        original: { key: 'title', value: movie.title },
       })
     );
   }

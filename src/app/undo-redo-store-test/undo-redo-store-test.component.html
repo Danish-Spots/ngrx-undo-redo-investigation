@@ -12,39 +12,33 @@
         <div class="input-fields">
           <div>
             <span class="width-50">Title:</span>
-            <input
-              type="text"
-              (focusout)="editMovieTitle($event, platform.id, movie)"
-              [value]="movie.title"
-            />
+            <input type="text" (focusout)="editMovieTitle($event, platform.id, movie)" [value]="movie.title" />
           </div>
           <div>
             <span class="width-50">Rating:</span>
-            <input
-              type="text"
-              (focusout)="editMovie($event, platform.id, movie)"
-              [value]="movie.text"
-            />
+            <input type="text" (focusout)="editMovie($event, platform.id, movie)" [value]="movie.text" />
           </div>
         </div>
       </div>
     </div>
-    <button
-      class="add"
-      mat-raised-button
-      color="primary"
-      (click)="addMovie(platform.id)"
-    >
-      Add Title & Rating
-    </button>
+    <button class="add" mat-raised-button color="primary" (click)="addMovie(platform.id)">Add Title & Rating</button>
   </div>
 </div>
 
-<button
-  mat-raised-button
-  color="primary"
-  class="add-platform"
-  (click)="addPlatform()"
->
-  Add Movie
-</button>
+<button mat-raised-button color="primary" class="add-platform" (click)="addPlatform()">Add Movie</button>
+
+<h1>Changelog</h1>
+<h2>1.1</h2>
+<p>
+  Changed how undo redo functionality works. Now it does not calculate new state on undo from intial state. Instead it
+  calculates it based on the payload. So if the payload is add, then it just removes the item from state. If the payload
+  is edit, then it stores the original value, using a key and value. This is then used to transform the current value on
+  undo, by using the original value and its key. Have alook at the platform reducer on undo action to learn more.
+</p>
+<h2>1.0</h2>
+<p>
+  Initial version of this app where you can see how undo redo functionality can work using NgRx. It works by storing
+  each action as an undo action and then on undo, calculates state from initial state by iterating over all undo actions
+  minus 1. It then stores the most recent undo action in the redo actions so you can go back to the most recent state.
+  To learn more look at the platform reducer. It uses effects to handle creating these undo undo actions.
+</p>
