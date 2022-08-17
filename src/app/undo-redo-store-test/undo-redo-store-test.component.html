@@ -28,6 +28,19 @@
 <button mat-raised-button color="primary" class="add-platform" (click)="addPlatform()">Add Movie</button>
 
 <h1>Changelog</h1>
+<h2>1.2</h2>
+<p>
+  Changed how edit movie undo works, instead of change being of type key: string and value: string. I changed it to be
+  [key: string]: string, and use object copy notation to make a copy of the current and original and then splice it in.
+  To see actual implementation refer to to the platform reducer's undo actions. Below I have added an example of the
+  logic.
+</p>
+<pre>
+  <code>
+    const movieCopy = &#123; ...movieCurrent, ...original &#125;
+    platCopy.movies.splice(movieIndex, 1, movieCopy)
+  </code>
+</pre>
 <h2>1.1</h2>
 <p>
   Changed how undo redo functionality works. Now it does not calculate new state on undo from intial state. Instead it

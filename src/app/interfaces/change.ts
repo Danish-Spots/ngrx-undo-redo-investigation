@@ -1,4 +1,3 @@
 export interface Change {
-  key: string;
-  value: string;
+  [key: string]: string;
 }

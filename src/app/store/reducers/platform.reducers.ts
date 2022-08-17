@@ -87,9 +87,8 @@ export const documentReducer = createReducer(
           const mIndex: number = platCopy.movies.findIndex((m) => m.id === undoAction.movie.id);
           if (mIndex > -1) {
             const movie = platCopy.movies[mIndex];
-            (movie[(undoAction as UndoActionInterfaceEditMovie).original.key as keyof Movie] as string) = (
-              undoAction as UndoActionInterfaceEditMovie
-            ).original.value;
+            const movieCopy = { ...movie, ...undoAction.original };
+            platCopy.movies.splice(mIndex, 1, movieCopy);
             stateCopy.platforms.splice(pIndexEdit, 1, platCopy);
           }
         }
